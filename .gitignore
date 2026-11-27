@@ -1,0 +1,54 @@
+node_modules
+docs/enrichment-cache/
+dist
+out
+.DS_Store
+.eslintcache
+.env
+*.log*
+*.sql
+
+/src/generated/prisma
+
+/src/generated/prisma
+docs/*
+!/docs/server-deployment.md
+!/docs/source-updates.md
+outputs
+/.server/
+/.runtime/
+__pycache__/
+*.pyc
+
+.env.masspeclib2
+.env.masspeclib2.*
+!.env.masspeclib2.example
+
+test-results/
+# 真实连接配置和密钥
+/resources/shared-server.json
+/resources/delivery-profile.json
+*.pem
+*.key
+*.pfx
+
+# 数据与安装包
+*.sqlite
+*.sqlite3
+*.db
+*.msi
+*.asar
+
+# 保留项目初始化结构
+!/prisma/*.sql
+!/src/main/audit/experiment-schema.sql
+!/scripts/customer-delivery/lds-empty.sql
+!/tests/fixtures/schema3-initialize.sql
+!/scripts/customer-delivery/shared-catalog.sql
+
+# 新手启动的本机文件与私有连接配置
+/logs/
+/连接配置/*.json
+/连接配置/*.zip
+/连接配置/*.pem
+!/docs/README_原版.md

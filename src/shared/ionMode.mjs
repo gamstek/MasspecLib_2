@@ -1,0 +1,5 @@
+export function ionFlags(values=[]){let positive=false,negative=false,unknown=false;for(const value of values){if(value===1||value==='positive')positive=true;else if(value===0||value==='negative')negative=true;else unknown=true}return{positive,negative,unknown:unknown||!values.length}}
+export function recordIonFlags(record){return record.ionModes||ionFlags([...(record.ms||[]),...(record.spectra||[])].map(m=>m.polarity))}
+export function ionModeLabel(record){const v=recordIonFlags(record);return v.positive&&v.negative?'正/负离子':v.positive?'正离子':v.negative?'负离子':'未注明'}
+export function ionModeHint(record){const v=recordIonFlags(record);return (v.positive||v.negative)&&v.unknown?'部分方法或谱图未注明离子模式':'汇总该记录关联的质谱方法与谱图；不根据名称或离子源推测'}
+export function ionModePredicate(mode,positive,negative){const p=Number(mode);if(![0,1,2,3].includes(p))throw Error('离子模式筛选无效');return p===1?'('+positive+')':p===0?'('+negative+')':p===3?'(('+positive+') AND ('+negative+'))':'(NOT ('+positive+') AND NOT ('+negative+'))'}

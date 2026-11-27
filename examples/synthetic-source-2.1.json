@@ -1,0 +1,111 @@
+{
+  "formatVersion": 2,
+  "schemaVersion": 2,
+  "packageId": "synthetic-demo-2.1",
+  "mappingVersion": "synthetic-demo-2.1",
+  "groups": [
+    {
+      "source": {
+        "namespace": "synthetic-demo-2.1",
+        "key": "case-1",
+        "name": "软件测试库（不代表真实公开数据）",
+        "sourceType": "local",
+        "provider": "软件自检",
+        "location": "examples/synthetic-source-2.1.json"
+      },
+      "compound": {
+        "main_name": "界面测试化合物，不代表真实物质",
+        "name": [
+          {
+            "area": "中国",
+            "name": "测试化合物"
+          }
+        ],
+        "cas": null,
+        "formula": null,
+        "name_zh": "测试中文名称",
+        "name_en": "Synthetic Test Compound"
+      },
+      "methods": [
+        {
+          "localId": "method-1",
+          "ms_mode": null,
+          "q1": "301.100",
+          "q3": "100.000",
+          "ce": -15,
+          "dp": 0,
+          "polarity": 1,
+          "ce_unit": null,
+          "energy_type": null,
+          "scan_mode": "MRM",
+          "transition_role": "qualifier",
+          "conditions": {
+            "说明": "软件测试记录，不作为实验条件",
+            "源温度": {
+              "value": 0,
+              "unit": null
+            }
+          }
+        }
+      ],
+      "spectra": [
+        {
+          "kind": "numeric",
+          "peaks": [
+            {
+              "mz": "100.0000000001",
+              "intensity": "100000"
+            },
+            {
+              "mz": "100.0000000001",
+              "intensity": "5000"
+            }
+          ],
+          "adduct": null,
+          "polarity": null,
+          "methodLocalIds": [
+            "method-1"
+          ],
+          "nature": "synthetic-test",
+          "spectrum_type": "MS2",
+          "precursor_mz": "301.100"
+        }
+      ],
+      "lcMethods": [
+        {
+          "lc_mode": null,
+          "retention_time": 1.5,
+          "retention_time_unit": null,
+          "items": [
+            {
+              "time": 0,
+              "flow_rate": 0,
+              "percentage_A": "0",
+              "percentage_B": "100",
+              "time_unit": null
+            }
+          ],
+          "column_type": "测试柱类型",
+          "column_length_mm": "100.000",
+          "column_inner_diameter_mm": "2.100",
+          "column_particle_size_um": "1.700",
+          "column_temperature_c": "0",
+          "phase_A": "测试流动相A，不作为实验条件",
+          "phase_B": "测试流动相B，不作为实验条件",
+          "elution_mode": "gradient",
+          "program_text": "仅用于界面测试；不代表实际分析方法"
+        }
+      ],
+      "profiles": [
+        {
+          "title": "测试档案",
+          "matrix": null,
+          "verification_status": "未验证，测试造数",
+          "data": {
+            "purpose": "软件测试"
+          }
+        }
+      ]
+    }
+  ]
+}

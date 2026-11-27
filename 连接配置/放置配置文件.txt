@@ -1,0 +1,12 @@
+请从公司管理员获取下面两个文件，直接放在本文件旁边：
+
+1. admin-profile.json（也支持名为 delivery-profile.json）
+2. shared-server.json
+
+文件到齐后，回到上一级，双击“启动软件.cmd”。
+
+不要把 *.example.json 改名冒充有效配置。
+不要填写自己的 GitHub 密码或 GitHub SSH 密钥。
+软件账号、公司服务器连接配置和 GitHub 账号互相独立。
+
+本目录中的真实连接配置可能含有数据库或 SSH 信息，已经加入 .gitignore，不能上传公开仓库。

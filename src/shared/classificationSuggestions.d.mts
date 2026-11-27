@@ -1,0 +1,1 @@
+export function mappingSuggestions(sourceCatalog:any[],targetCatalog:any[]):{sourceKey:string;sourcePath:string;candidates:{key:string;path:string;reason:string}[];status:string;needsConfirmation:boolean}[]

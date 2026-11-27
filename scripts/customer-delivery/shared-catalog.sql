@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS mspec_lib2_catalog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS mspec_lib2_audit CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS mspec_lib2_catalog.libraries (
+  id CHAR(64) PRIMARY KEY,
+  database_name VARCHAR(64) NOT NULL UNIQUE,
+  title VARCHAR(255) NOT NULL,
+  file_name VARCHAR(255) NOT NULL,
+  sha256 CHAR(64) NOT NULL UNIQUE,
+  schema_version INT NOT NULL,
+  compound_count BIGINT NOT NULL,
+  published_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS mspec_lib2_catalog.import_jobs (
+  id CHAR(36) PRIMARY KEY,
+  file_name VARCHAR(255) NOT NULL,
+  sha256 CHAR(64),
+  state VARCHAR(32) NOT NULL,
+  database_name VARCHAR(64),
+  detail TEXT,
+  created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+  updated_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB;

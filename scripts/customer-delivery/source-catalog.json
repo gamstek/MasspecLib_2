@@ -1,0 +1,380 @@
+[
+  {
+    "id": "1",
+    "name": "质谱银行 / MassBank",
+    "url": "https://massbank.jp/",
+    "adapter": "massbank"
+  },
+  {
+    "id": "5",
+    "name": "开放多级碎裂谱库 / MSⁿLib",
+    "url": "https://zenodo.org/records/21105617",
+    "adapter": "msnlib",
+    "scopes": [
+      {
+        "id": "targetmol_hts_np_neg_ms2",
+        "label": "TargetMol HTS 天然产物 · 负离子 · MS2 导出"
+      },
+      {
+        "id": "targetmol_hts_np_pos_ms2",
+        "label": "TargetMol HTS 天然产物 · 正离子 · MS2 导出"
+      },
+      {
+        "id": "mcediv_50k_sub_neg_ms2",
+        "label": "MCE Diversity · 负离子 · MS2 导出"
+      },
+      {
+        "id": "mcediv_50k_sub_pos_ms2",
+        "label": "MCE Diversity · 正离子 · MS2 导出"
+      },
+      {
+        "id": "enammol_neg_ms2",
+        "label": "Enamine Molecular · 负离子 · MS2 导出"
+      },
+      {
+        "id": "enammol_pos_ms2",
+        "label": "Enamine Molecular · 正离子 · MS2 导出"
+      },
+      {
+        "id": "enamdisc_neg_ms2",
+        "label": "Enamine Discovery · 负离子 · MS2 导出"
+      },
+      {
+        "id": "enamdisc_pos_ms2",
+        "label": "Enamine Discovery · 正离子 · MS2 导出"
+      },
+      {
+        "id": "nihnp_neg_ms2",
+        "label": "NIH 天然产物 · 负离子 · MS2 导出"
+      },
+      {
+        "id": "nihnp_pos_ms2",
+        "label": "NIH 天然产物 · 正离子 · MS2 导出"
+      },
+      {
+        "id": "mcebio_neg_ms2",
+        "label": "MCE Bioactive · 负离子 · MS2 导出"
+      },
+      {
+        "id": "mcebio_pos_ms2",
+        "label": "MCE Bioactive · 正离子 · MS2 导出"
+      },
+      {
+        "id": "mcedrug_neg_ms2",
+        "label": "MCE Drug · 负离子 · MS2 导出"
+      },
+      {
+        "id": "mcedrug_pos_ms2",
+        "label": "MCE Drug · 正离子 · MS2 导出"
+      },
+      {
+        "id": "mcescaf_neg_ms2",
+        "label": "MCE Scaffold · 负离子 · MS2 导出"
+      },
+      {
+        "id": "mcescaf_pos_ms2",
+        "label": "MCE Scaffold · 正离子 · MS2 导出"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "NIST化学网络手册·质谱部分 / NIST Chemistry WebBook (SRD 69)",
+    "url": "https://webbook.nist.gov/chemistry/",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "7",
+    "name": "有机化合物谱图数据库·质谱部分 / SDBS",
+    "url": "https://sdbs.db.aist.go.jp/",
+    "adapter": "manual"
+  },
+  {
+    "id": "9",
+    "name": "大肠杆菌代谢组数据库·质谱部分 / ECMDB",
+    "url": "https://ecmdb.ca/",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "10",
+    "name": "MassBank计算质谱库 / MassBank in silico",
+    "url": "https://insilico.massbank.jp/",
+    "adapter": "manual"
+  },
+  {
+    "id": "11",
+    "name": "植物代谢物参考谱库 / ReSpect",
+    "url": "https://prime.psc.riken.jp/menta.cgi/prime/legacy_index",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "12",
+    "name": "植物代谢组谱图集 / RIKEN PlaSMA",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "13",
+    "name": "植物MS²标签库 / RIKEN MS2T",
+    "url": "https://prime.psc.riken.jp/menta.cgi/prime/legacy_index",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "14",
+    "name": "天然产物串联质谱库 / BMDMS-NP",
+    "url": "https://github.com/chalbori/bmdms-np",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "15",
+    "name": "Fiehn/Vaniya天然产物库 / Fiehn–Vaniya Natural Product Library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "16",
+    "name": "伯克利实验室质谱库 / Berkeley Lab spectral library",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "23",
+    "name": "RECETOX暴露组高分辨EI库 / Exposome HR-[EI+]-MS",
+    "url": "https://www.recetox.muni.cz/en/services/recetox-central-laboratories/biomarker-analysis-laboratories/recetox-mass-spectrum-reference-library",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "24",
+    "name": "RECETOX代谢组高分辨EI库 / Metabolome HR-[EI+]-MS",
+    "url": "https://www.recetox.muni.cz/en/services/recetox-central-laboratories/biomarker-analysis-laboratories/recetox-mass-spectrum-reference-library",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "25",
+    "name": "RECETOX同位素标记物EI库 / Labelled Compounds HR-[EI+]-MS",
+    "url": "https://www.recetox.muni.cz/en/services/recetox-central-laboratories/biomarker-analysis-laboratories/recetox-mass-spectrum-reference-library",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "26",
+    "name": "RECETOX农药ESI库 / Exposome Pesticides HR-[ESI]-MS",
+    "url": "https://zenodo.org/records/6325572",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "27",
+    "name": "RECETOX药物ESI库 / Exposome Pharmaceuticals HR-[ESI]-MS",
+    "url": "https://zenodo.org/records/6325572",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "28",
+    "name": "NIST PFAS参考谱数据库 / DIMSpec for PFAS",
+    "url": "https://github.com/usnistgov/dimspec",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "29",
+    "name": "SCIEX开放DIMSpec PFAS库 / Open Access DIMSpec PFAS Library",
+    "url": "https://sciex.com/products/spectral-library",
+    "adapter": "manual"
+  },
+  {
+    "id": "30",
+    "name": "SCIEX开放可提取物与浸出物库 / Open Access E&L HR-MS/MS",
+    "url": "https://sciex.com/products/spectral-library",
+    "adapter": "manual"
+  },
+  {
+    "id": "31",
+    "name": "MS-DIAL分发PFAS库 / PFAS MS/MS library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "32",
+    "name": "CleaD谱库 / CleaD spectral library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "33",
+    "name": "SWGDRUG药物质谱库 / SWGDRUG Mass Spectral Library",
+    "url": "https://swgdrug.org/ms.htm",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "34",
+    "name": "Cayman法医质谱库 / Cayman Spectral Library (CSL)",
+    "url": "https://www.caymanchem.com/forensics/publications/csl",
+    "adapter": "manual"
+  },
+  {
+    "id": "35",
+    "name": "NIST直接实时分析质谱库 / NIST DART-MS Library",
+    "url": "https://chemdata.nist.gov/dokuwiki/doku.php?id=chemdata:dart-library",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "42",
+    "name": "Fiehn亲水代谢物库 / Fiehn HILIC",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "43",
+    "name": "Fiehn病原体化合物盒谱库 / Fiehn Pathogen Box",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "45",
+    "name": "GIAR亲水DIA谱库 / GIAR zic-HILIC library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "46",
+    "name": "Fiehn BinBase公开子库 / Fiehn BinBase MSP",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "47",
+    "name": "RIKEN GC-MS库 / RIKEN EI database",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "48",
+    "name": "Kazusa GC-MS库 / Kazusa EI database",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "49",
+    "name": "GL Sciences GC-MS库 / GL-Science EI database",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "50",
+    "name": "大阪大学/GL Sciences GC-MS库 / Osaka Univ–GL Sciences EI DB",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "51",
+    "name": "大阪大学氢载气GC-MS库 / Osaka Univ Hydrogen carrier gas library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "52",
+    "name": "大阪大学CPSil-8CB库 / Osaka Univ CPSil-8CB database",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "53",
+    "name": "MoNA挥发物公开子库 / MoNA volatile MSP",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "54",
+    "name": "CASMI 2016参考质谱集 / CASMI2016 spectral library",
+    "url": "https://systemsomicslab.github.io/compms/msdial/main.html",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "55",
+    "name": "单萜吲哚生物碱库 / MIADB",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "56",
+    "name": "异喹啉及番荔枝科代谢物库 / IQAMDB",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "57",
+    "name": "地衣天然产物谱库 / LDB Lichen Database",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "58",
+    "name": "Sumner植物代谢物公开库 / Bruker MetaboBASE Plant (SUMNER)",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "59",
+    "name": "植物天然产物注释库 / LEAFBOT (LEAF Bot)",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "60",
+    "name": "Sam Sik Kang植物化合物库 / Sam Sik Kang Legacy Library",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "61",
+    "name": "NIH天然产物库第一轮 / NIH Natural Products Library Round 1",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "62",
+    "name": "NIH天然产物库第二轮 / NIH ACONN Round 2",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "63",
+    "name": "FDA批准药物库 / GNPS Selleckchem FDA Part 1/2",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "64",
+    "name": "NIH临床化合物集 / NIH Clinical Collection 1/2",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "65",
+    "name": "NIH药理活性化合物库 / NIH Small Molecule Repository PAC",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "66",
+    "name": "营养代谢物库 / Nutri-Metabolomics",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "67",
+    "name": "葡萄酒相关化合物库 / WineDB",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "68",
+    "name": "Penn State代谢物标准库 / PSU MSMLS",
+    "url": "https://library.gnps2.org/libraries",
+    "adapter": "snapshot"
+  },
+  {
+    "id": "69",
+    "name": "多模式、多能量质谱库 / MultiMS² (MultiMS2)",
+    "url": "https://github.com/zamboni-lab/MultiMS2",
+    "adapter": "snapshot"
+  }
+]

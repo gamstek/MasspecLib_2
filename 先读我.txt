@@ -1,0 +1,10 @@
+﻿MasspecLib2 新手启动：连接公司服务器
+
+1. 完整解压本 ZIP。
+2. 按 README.md 第 1 步安装 Node.js 24.x x64。
+3. 从管理员获取 admin-profile.json、shared-server.json 和软件账号。
+4. 两个配置文件放进“连接配置”文件夹。
+5. 双击“启动软件.cmd”，等待安装和编译，再登录。
+
+本机不需要 MySQL、Python、Conda。首次启动需要联网下载。
+这份源码不包含公司真实配置、密码和完整谱库。详细步骤与错误处理请看 README.md。

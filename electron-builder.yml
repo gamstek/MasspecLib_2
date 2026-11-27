@@ -1,0 +1,59 @@
+appId: com.gamstek.masspeclib2
+productName: MasspecLib2
+copyright: 'Copyright © 2024 Gamstek. All rights reserved.'
+directories:
+  buildResources: build
+files:
+  - out/**
+  - node_modules/**
+  - package.json
+  - '!**/.env*'
+extraResources:
+  - from: resources/shared-server.json
+    to: shared-server.json
+  - from: .env.masspeclib2.example
+    to: database-config.example.env
+  - from: prisma/masspeclib2-initialize.sql
+    to: database/masspeclib2-initialize.sql
+  - from: prisma/masspeclib2-initialize.sql.manifest.json
+    to: database/masspeclib2-initialize.sql.manifest.json
+  - from: src/main/audit/experiment-schema.sql
+    to: database/experiment-schema-v1.sql
+asarUnpack:
+  - resources/**
+win:
+  target:
+    - target: msi
+      arch: [x64]
+  executableName: MasspecLib2
+  icon: build/icon.ico
+msi:
+  upgradeCode: 4AE4176C-4C5A-4A28-9DB2-3C56D8B139D4
+  artifactName: MasspecLib2-${version}-x64.${ext}
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+mac:
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: false
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/

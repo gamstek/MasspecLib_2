@@ -1,0 +1,43 @@
+export const MAJOR_NAMESPACE='unified-consolidated-v2'
+export const FIXED_MAJORS=[['pesticides','农药及农残','application'],['drugs','药物及代谢物','application'],['veterinary','兽药及兽残','application'],['toxins','毒物及毒素','application'],['illegal','非法添加物','application'],['food_additives','食品添加剂及包装迁移物','application'],['cosmetics','化妆品相关成分','application'],['environment','环境污染物及相关专项对象','application'],['industrial','工业化学品及材料相关物质','application'],['food_components','食品成分及营养相关物质','application'],['natural','天然产物及生物来源物质','origin'],['metabolism','代谢物及生物活性物质','biological_role'],['lipids','脂质及脂质相关物质','chemical_structure'],['peptides','肽类及相关物质','chemical_structure'],['chemicals','其他化学物质','chemical_structure'],['other','其他／待确认','application']].map(([category_code,category_name,axis],sort_order)=>({namespace:MAJOR_NAMESPACE,category_code,category_name,parent_code:null,axis,sort_order,fixed:true}))
+export const majorKey=code=>JSON.stringify([MAJOR_NAMESPACE,code])
+export const isMajor=c=>c.namespace===MAJOR_NAMESPACE&&FIXED_MAJORS.some(m=>m.category_code===c.category_code)
+const key=c=>JSON.stringify([c.namespace,c.category_code])
+const names=new Map(FIXED_MAJORS.map(c=>[c.category_name,c.category_code]))
+const groups={
+ drugs:['药物代谢物','壮阳类','PDE5 抑制剂','激素类','抗生素类','其他抗菌药','抗菌剂类','镇痛及抗炎药物','抗抑郁药','抗癫痫药','抗精神病药','镇静催眠及抗焦虑药','β肾上腺素受体激动剂','心血管系统药物','兴奋剂及相关物质','其他治疗药物及辅助物质','其他神经系统药物','呼吸系统药物','大麻素及相关物质','抗寄生虫药物及相关代谢物','抗病毒及相关药物','抗组胺及抗过敏药物','消化系统药物','肌肉松弛药物','解毒药物','阿片相关药物及代谢物','麻醉药物'],
+ pesticides:['农药代谢及转化产物','拟除虫菊酯类','天然除虫菊素类','其他杀虫剂与杀螨剂及其代谢物','农用杀菌剂及其代谢物','农药中间体及降解产物','农药增效剂','土壤熏蒸剂','新烟碱类杀虫剂及其代谢物','有机氯类杀虫剂及其代谢物','有机磷类农药及其代谢物','杀线虫剂及其代谢物','杀鼠剂及相关物质','植物生长调节剂及相关物质','氨基甲酸酯类农药及其代谢物','除草剂及其代谢物','杀虫剂','杀菌剂','除草剂'],
+ food_additives:['食品接触材料及迁移相关对象'],veterinary:['兽用镇静药物'],toxins:['真菌毒素'],industrial:['染料及非食用添加物'],environment:['环境相关标准品','环境转化产物','环境与工艺污染物'],chemicals:['生物碱及相关物质','生物碱类','抗氧化剂及相关物质'],peptides:['未修饰肽','修饰肽','环肽','交联肽','修饰信息未注明','待细分肽'],lipids:['脂质及脂质相关物质','脂肪酸及脂肪酰类','磷脂类','鞘脂类','甘油脂类','甾醇及胆汁酸相关物质'],metabolism:['微生物代谢物','其他代谢及转化产物']}
+for(const [code,labels]of Object.entries(groups))for(const label of labels)names.set(label,code)
+export function sourceCategoryPath(catalog,category){const byKey=new Map(catalog.map(c=>[key(c),c])),path=[],seen=new Set();let c=category;while(c){if(seen.has(key(c)))throw Error('分类路径存在循环');seen.add(key(c));if(!/原表分类|来源专题|来源分类/.test(c.category_name))path.unshift(String(c.category_name));c=c.parent_code?byKey.get(JSON.stringify([c.namespace,c.parent_code])):null}return path}
+for(const [label,code]of Object.entries({'农药':'pesticides','兽药':'veterinary','毒物':'toxins','生物毒素':'toxins','环境污染物':'environment','化工材料':'industrial','治疗药物':'drugs','食品添加剂':'food_additives','天然产物':'natural'}))names.set(label,code)
+for(const label of ['肽类','肽及相关衍生物','肽类及相关物质'])names.set(label,'peptides')
+export const isPeptideCategory=c=>!!c&&['肽类','肽及相关衍生物','肽类及相关物质'].includes(c.category_name)
+export function majorForLabels(labels=[]){for(const label of [...labels].reverse()){const code=names.get(String(label).normalize('NFC').trim());if(code)return code}return'other'}
+// Approved second-level dictionary. Unknown source labels remain tags until explicitly mapped.
+const aliases=new Map([['抗生素类药物','抗生素类'],['抗精神病药','抗精神类'],['抗精神类','抗精神类'],['抗菌剂类','抗菌剂'],['抗菌剂','抗菌剂'],['拟除虫菊酯类','拟除虫菊酯类农药'],['拟除虫菊酯类农药','拟除虫菊酯类农药'],['PDE5 抑制剂','壮阳类']])
+const structural=['黄酮类','生物碱类','酚类及相关衍生物','萜类及相关衍生物','甾体及相关衍生物','氨基酸及相关衍生物','糖及糖衍生物','核苷及核苷酸相关物质','其他有机酸及相关衍生物','其他杂环化合物','其他有机化合物','酰胺及相关衍生物','羧酸酯及相关衍生物','醛酮及相关衍生物','胺类及相关衍生物','醚类及相关衍生物','有机卤素化合物','其他碳环芳香族化合物','其他脂肪族及非芳香碳环化合物','无机及其他非典型有机结构']
+const shortCode=value=>{let a=2166136261,b=5381;for(const ch of value){a=Math.imul(a^ch.codePointAt(0),16777619);b=Math.imul(b,33)^ch.codePointAt(0)}return(a>>>0).toString(16).padStart(8,'0')+(b>>>0).toString(16).padStart(8,'0')}
+const second=[];for(const [major,labels]of Object.entries({...groups,chemicals:[...groups.chemicals,...structural]}))for(const original of labels){if(FIXED_MAJORS.some(c=>c.category_name===original))continue;const label=aliases.get(original)||original;if(second.some(c=>c.parent_code===major&&c.category_name===label))continue;const code='sub:'+major+':'+shortCode(label);second.push({namespace:MAJOR_NAMESPACE,category_code:code,category_name:label,parent_code:major,axis:FIXED_MAJORS.find(c=>c.category_code===major).axis,fixed:true});names.set(original,major)}
+for(const [alias,canonical]of aliases){const c=second.find(c=>c.category_name===canonical);if(c)names.set(alias,c.parent_code)}
+export const FIXED_SUBCATEGORIES=second
+export const FIXED_CLASSIFICATION_CATALOG=[...FIXED_MAJORS,...FIXED_SUBCATEGORIES]
+export function fixedMajorValue(value={},defaultMajor){
+ const catalog=value.catalog||[],byKey=new Map(catalog.map(c=>[key(c),c])),paths=value.source_paths?.length?value.source_paths:(value.items||[]).map(item=>byKey.get(item.key)).filter(Boolean).map(c=>sourceCategoryPath(catalog,c));
+ const codes=new Set(),explicit=[];
+ for(const item of value.items||[]){let c=byKey.get(item.key)||FIXED_CLASSIFICATION_CATALOG.find(c=>key(c)===item.key);const seen=new Set();while(c&&!seen.has(key(c))){seen.add(key(c));if(isPeptideCategory(c)){codes.add('peptides');if(item.review_status==='confirmed'||item.locked)explicit.push({...item,key:majorKey('peptides'),major:'peptides'});break}if(isMajor(c)){codes.add(c.category_code);if(item.review_status==='confirmed'||item.locked)explicit.push({...item,key:item.key,major:c.category_code});break}c=c.parent_code?(byKey.get(JSON.stringify([c.namespace,c.parent_code]))||FIXED_CLASSIFICATION_CATALOG.find(x=>x.namespace===c.namespace&&x.category_code===c.parent_code)):null}}
+ if(!codes.size)for(const labels of paths.length?paths:(value.source_labels||[]).map(label=>[label]))codes.add(majorForLabels(labels));
+ if(!codes.size)codes.add('other');if(codes.size>1)codes.delete('other');if(codes.size===1&&codes.has('other')&&!explicit.length&&FIXED_MAJORS.some(m=>m.category_code===defaultMajor)){codes.delete('other');codes.add(defaultMajor)}
+ const combined=new Map(FIXED_CLASSIFICATION_CATALOG.map(c=>[key(c),c]));for(const c of catalog)if(c.namespace===MAJOR_NAMESPACE&&FIXED_MAJORS.some(m=>m.category_code===c.parent_code)&&!combined.has(key(c)))combined.set(key(c),c);
+ const status='rule-mapped';
+ return{...value,version:1,scheme:'fixed-majors-v1',catalog:[...combined.values()].map(c=>({...c})),items:[...codes].flatMap(code=>{const selected=explicit.filter(i=>i.major===code);return selected.length?selected.map(({major,...item})=>{let candidate=byKey.get(item.key);const seen=new Set();while(candidate&&!combined.has(key(candidate))&&!seen.has(key(candidate))){seen.add(key(candidate));candidate=candidate.parent_code?byKey.get(JSON.stringify([candidate.namespace,candidate.parent_code])):null}return{...item,key:combined.has(item.key)?item.key:candidate&&combined.has(key(candidate))?key(candidate):majorKey(code)}}):[{key:majorKey(code),review_status:code==='other'?'pending':status}]}),source_labels:[...new Set([...(value.source_labels||[]),...paths.map(p=>p.join(' / '))])],source_paths:paths}
+}
+export function subdivideMajorValue(value){
+ const result={...value,catalog:FIXED_CLASSIFICATION_CATALOG.map(c=>({...c})),items:[]},known=new Map((value.catalog||[]).map(c=>[key(c),c]));
+ for(const item of value.items||[]){let c=known.get(item.key)||FIXED_CLASSIFICATION_CATALOG.find(c=>key(c)===item.key),major=c?.category_code;while(c?.parent_code){major=c.parent_code;c=known.get(JSON.stringify([c.namespace,c.parent_code]))||FIXED_MAJORS.find(m=>m.category_code===c.parent_code)}if(!FIXED_MAJORS.some(m=>m.category_code===major))continue;
+ const selected=known.get(item.key);if(selected?.parent_code===major&&FIXED_SUBCATEGORIES.some(c=>key(c)===item.key)){result.items.push({...item});continue}if(item.review_status==='confirmed'){if(selected?.parent_code===major){if(!result.catalog.some(c=>key(c)===item.key))result.catalog.push({...selected});result.items.push({...item});continue}result.items.push({...item,key:majorKey(major)});continue}
+ const paths=value.source_paths?.length?value.source_paths:(value.source_labels||[]).map(label=>[label]);let found=false;
+ for(const path of paths){if(majorForLabels(path)!=='other'&&majorForLabels(path)!==major)continue;const child=path.map(label=>aliases.get(String(label).trim())||String(label).trim()).map(label=>second.find(c=>c.parent_code===major&&c.category_name===label)).find(Boolean);if(child){if(!result.items.some(i=>i.key===key(child)))result.items.push({...item,key:key(child)});found=true}}
+ if(!found)result.items.push({...item,key:majorKey(major)});
+ }return result;
+}

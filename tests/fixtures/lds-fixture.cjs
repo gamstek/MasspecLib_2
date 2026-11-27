@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path'),{DatabaseSync}=require('node:sqlite');
+function fixture(root){const file=path.join(root,'LDS.sqlite'),db=new DatabaseSync(file);for(const sql of Object.values(require('./lds-cn-schema.json')))db.exec(sql);db.exec('BEGIN;PRAGMA defer_foreign_keys=ON');const add=(table,row)=>db.prepare('INSERT INTO "'+table+'"('+Object.keys(row).map(k=>'"'+k+'"').join(',')+')VALUES('+Object.keys(row).map(()=>'?').join(',')+')').run(...Object.values(row));
+add('构建信息',{键:'complete',值JSON:'true'});add('构建信息',{键:'verified_peak_rows',值JSON:'3'});
+for(const id of [1,2,3])add('化合物',{化合物ID:id,身份键:'identity:'+id,身份状态:id===1?'source_catalog_identity':'structure_consistent',对象类型:'test',化合物名称:'Compound '+id,中文名称:null,CAS号:'same-cas',分子式:'CALCULATED',来源名称与结构JSON:JSON.stringify({name_en:'English '+id,source_formula:'SOURCE'+id}),字段来源JSON:'{}'});
+add('分类字典',{分类ID:1,分类编码:'drugs',分类名称:'药物及代谢物',父类ID:null,分类维度:'application',状态:'active'});add('分类字典',{分类ID:2,分类编码:'antibiotics',分类名称:'抗生素类',父类ID:1,分类维度:'application',状态:'active'});add('化合物分类',{分类记录ID:1,化合物ID:1,分类体系:'unified',分类ID:2,分类名称:'抗生素类',分类维度:'application',来源标签:'原有抗生素标签',核查状态:'candidate_pending_review',证据JSON:'{}'});
+for(const id of [1,2])add('来源记录',{来源记录ID:id,来源分区:'test',原始记录ID:id,化合物ID:id,谱图ID:10,来源JSON:JSON.stringify({name:'Synthetic source'}),字段值JSON:'{}',字段来源JSON:'{}',保留时间:id===1?'0/1.25':null,保留时间单位:'min',色谱柱信息:'C18'});
+for(let i=1;i<=26;i++)add('MRM参数',{MRM记录ID:i,化合物ID:1,来源记录ID:1,原始方法ID:i,原始化合物ID:1,Q1母离子:String(300+i),Q3子离子:i===26?null:'150',碰撞参数:i===1?'0':i===2?'-20':'10',碰撞参数单位:i===3?'V':null,原始极性编码:0,离子模式:'negative',Q1Q3有效:i===26?0:1,关联原MRM目录:1,原始方法JSON:JSON.stringify({dp:80,cxp:0,ms_mode:'MS8000'})});
+add('谱图',{谱图ID:10,化合物ID:1,MS级别:2,对象类型:'test',前体mz:'155.1',离子模式:'positive',谱峰数:3});for(const id of [1,2])add('关联关系',{关联ID:id,关系类型:'spectrum_compound',化合物ID:id,谱图ID:10});for(let i=0;i<3;i++)add('谱峰',{谱图ID:10,峰序号:i,mz:100+i,强度:i*10});db.exec('COMMIT');db.close();return file}
+
+module.exports={fixture};

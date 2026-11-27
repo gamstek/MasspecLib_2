@@ -1,0 +1,270 @@
+generator client {
+  provider        = "prisma-client"
+  moduleFormat    = "cjs"
+  output          = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model compounds {
+  id                     Int      @id @default(autoincrement())
+  name                   Json?
+  formula                String?  @db.VarChar(255)
+  cas                    String?  @db.VarChar(255)
+  is_favorite            Boolean?
+  is_in_trash            Boolean?
+  is_delete              Boolean?
+  create_time            DateTime @db.DateTime(0)
+  update_time            DateTime @updatedAt @db.DateTime(0)
+  molecular_mass         Float?
+  monoisotopic_mass      Float?
+  formula_diagram_base64 String?  @db.LongText
+  main_name              String?  @db.VarChar(255)
+  name_zh                String?  @db.VarChar(255)
+  name_en                String?  @db.VarChar(255)
+
+  taxonomyLinks compound_taxonomy[]
+  classLinks  compound_class[]
+  lcMethodsLinks lc_methods[]
+  msMethods ms_methods[]
+  spectra spectra[]
+  profiles detection_profiles[]
+  revision Int @default(1)
+  identifiers Json?
+  properties Json?
+  @@map("compounds")
+}
+
+model classes {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  class_name  String   @db.VarChar(255)
+  is_custom   Boolean  @default(false)
+  create_time DateTime @db.DateTime(0)
+  update_time DateTime @updatedAt @db.DateTime(0)
+
+  classLinks  compound_class[]
+  @@map("classes")
+}
+
+model compound_class {
+  compound_id Int
+  class_id    Int @db.UnsignedInt
+  compound    compounds @relation(fields: [compound_id], references: [id])
+  class       classes   @relation(fields: [class_id], references: [id])
+  create_time DateTime @db.DateTime(0)
+  update_time DateTime @updatedAt @db.DateTime(0)
+  
+  @@id([compound_id, class_id])
+  @@map("compound_class")
+}
+
+model ms_methods {
+  id                   Int      @id @default(autoincrement())
+  compounds_id         Int?
+  ms_mode              String?  @db.VarChar(255)
+  q1                   Float?   @db.Float
+  q3                   Float?   @db.Float
+  ce                   Float?   @db.Float
+  dp                   Float?   @db.Float
+  cxp                  Float?   @db.Float
+  polarity             Int?     @db.TinyInt
+  ion_source           String?  @db.VarChar(255)
+  scan_mode            String?  @db.VarChar(255)
+  cad_value            Float?
+  cad_type             String?  @db.VarChar(255)
+  create_time          DateTime @db.DateTime(0)
+  update_time          DateTime @updatedAt @db.DateTime(0)
+  mass_spectrum_base64 String?  @db.LongText
+
+  compound compounds? @relation(fields: [compounds_id], references: [id])
+  spectraLinks spectrum_method_links[]
+  transition_role String? @db.VarChar(32)
+  adduct String? @db.VarChar(255)
+  ce_unit String? @db.VarChar(64)
+  energy_type String? @db.VarChar(64)
+  conditions Json?
+  revision Int @default(1)
+  @@index([compounds_id]) 
+  @@map("ms_methods")
+}
+
+model lc_methods {
+  id                          Int      @id @default(autoincrement())
+  compounds_id                Int
+  compound    compounds @relation(fields: [compounds_id], references: [id])
+  lc_mode                     String?  @db.VarChar(255)
+  chromatographic_column_mode String?  @db.VarChar(255)
+  retention_time              Float?
+  phase_A                     String?  @db.Text
+  phase_B                     String?  @db.Text
+  create_time                 DateTime @db.DateTime(0)
+  update_time                 DateTime @updatedAt @db.DateTime(0)
+
+  methodsLinks lc_methods_items[]
+  column_type String? @db.VarChar(255)
+  column_length_mm Decimal? @db.Decimal(10,3)
+  column_inner_diameter_mm Decimal? @db.Decimal(10,3)
+  column_particle_size_um Decimal? @db.Decimal(10,3)
+  column_temperature_c Decimal? @db.Decimal(10,3)
+  elution_mode String? @db.VarChar(32)
+  program_text String? @db.Text
+  retention_time_unit String? @db.VarChar(64)
+  conditions Json?
+  revision Int @default(1)
+  @@index([compounds_id])
+  @@map("lc_methods")
+}
+
+model lc_methods_items {
+  id            Int      @id @default(autoincrement())
+  lc_methods_id Int?
+  time          Float?
+  percentage_A  String?  @db.VarChar(255)
+  percentage_B  String?  @db.VarChar(255)
+  flow_rate     Float?   @db.Float
+  create_time   DateTime @db.DateTime(0)
+  update_time   DateTime @updatedAt @db.DateTime(0)
+
+  lcMethod lc_methods? @relation(fields: [lc_methods_id], references: [id])
+  step_order Int?
+  time_unit String? @db.VarChar(64)
+  flow_rate_unit String? @db.VarChar(64)
+  components Json?
+  @@index([lc_methods_id])
+  @@map("lc_methods_items")
+}
+
+
+model app_metadata {
+  id Int @id
+  product String @db.VarChar(64)
+  schema_version Int
+  instance_id String @db.VarChar(64)
+  state String @db.VarChar(32)
+  created_at DateTime @default(now())
+}
+
+model spectral_libraries {
+  id Int @id @default(autoincrement())
+  namespace String @unique @db.VarChar(191)
+  source_type String @default("unknown") @db.VarChar(32)
+  name String @db.VarChar(255)
+  version String? @db.VarChar(255)
+  provider String? @db.VarChar(255)
+  location String? @db.Text
+  license String? @db.Text
+  records source_records[]
+}
+
+model import_batches {
+  id Int @id @default(autoincrement())
+  package_id String @db.VarChar(191)
+  content_hash String @db.VarChar(64)
+  mapping_version String @db.VarChar(64)
+  status String @db.VarChar(32)
+  cursor Int @default(0)
+  report Json?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  records source_records[]
+  @@unique([package_id, content_hash])
+}
+
+model source_records {
+  id Int @id @default(autoincrement())
+  library_id Int
+  library spectral_libraries @relation(fields: [library_id], references: [id])
+  source_key String @db.VarChar(191)
+  content_hash String @db.VarChar(64)
+  raw Json
+  decision String @db.VarChar(32)
+  batch_id Int
+  batch import_batches @relation(fields: [batch_id], references: [id])
+  entities entity_sources[]
+  created_at DateTime @default(now())
+  @@unique([library_id, source_key, content_hash])
+  @@index([batch_id])
+}
+
+model spectra {
+  id Int @id @default(autoincrement())
+  compound_id Int
+  compound compounds @relation(fields: [compound_id], references: [id])
+  kind String @db.VarChar(32)
+  peaks Json?
+  image_base64 String? @db.LongText
+  image_mime String? @db.VarChar(64)
+  spectrum_type String? @db.VarChar(64)
+  polarity Int? @db.TinyInt
+  adduct String? @db.VarChar(255)
+  precursor_mz Decimal? @db.Decimal(20,10)
+  collision_energy Json?
+  conditions Json?
+  nature String? @db.VarChar(32)
+  raw Json?
+  revision Int @default(1)
+  methods spectrum_method_links[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  @@index([compound_id])
+}
+
+model spectrum_method_links {
+  spectrum_id Int
+  method_id Int
+  spectrum spectra @relation(fields: [spectrum_id], references: [id])
+  method ms_methods @relation(fields: [method_id], references: [id])
+  @@id([spectrum_id, method_id])
+  @@index([method_id])
+}
+
+model detection_profiles {
+  id Int @id @default(autoincrement())
+  compound_id Int
+  compound compounds @relation(fields: [compound_id], references: [id])
+  title String @db.VarChar(255)
+  matrix String? @db.VarChar(255)
+  verification_status String? @db.VarChar(64)
+  data Json?
+  revision Int @default(1)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  @@index([compound_id])
+}
+
+model entity_sources {
+  id Int @id @default(autoincrement())
+  source_record_id Int
+  source_record source_records @relation(fields: [source_record_id], references: [id])
+  entity_type String @db.VarChar(64)
+  entity_id Int
+  revision_at_import Int @default(1)
+  @@unique([source_record_id, entity_type, entity_id])
+  @@index([entity_type, entity_id])
+}
+
+model taxonomy_categories {
+  id Int @id @default(autoincrement())
+  namespace String @db.VarChar(64)
+  category_code String @db.VarChar(100)
+  category_name String @db.VarChar(255)
+  axis String @db.VarChar(64)
+  parent_code String? @db.VarChar(100)
+  description String? @db.Text
+  status String @default("active") @db.VarChar(32)
+  links compound_taxonomy[]
+  @@unique([namespace, category_code])
+  @@index([namespace, parent_code])
+}
+
+model compound_taxonomy {
+  compound_id Int
+  category_id Int
+  compound compounds @relation(fields: [compound_id], references: [id])
+  category taxonomy_categories @relation(fields: [category_id], references: [id])
+  evidence Json?
+  @@id([compound_id, category_id])
+  @@index([category_id, compound_id])
+}

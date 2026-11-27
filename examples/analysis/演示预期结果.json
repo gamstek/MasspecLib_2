@@ -1,0 +1,182 @@
+[
+  {
+    "id": "DEMO-01",
+    "sample": "演示样品1·正常",
+    "peak": "pass",
+    "flags": [],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": []
+  },
+  {
+    "id": "DEMO-02",
+    "sample": "演示样品2·前延",
+    "peak": "fail",
+    "flags": [
+      "fronting"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "前延"
+    ]
+  },
+  {
+    "id": "DEMO-03",
+    "sample": "演示样品3·拖尾",
+    "peak": "fail",
+    "flags": [
+      "tailing"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "拖尾"
+    ]
+  },
+  {
+    "id": "DEMO-04",
+    "sample": "演示样品4·疑似分叉",
+    "peak": "fail",
+    "flags": [
+      "tailing",
+      "split"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "拖尾",
+      "疑似分叉／肩峰"
+    ]
+  },
+  {
+    "id": "DEMO-05",
+    "sample": "演示样品5·数值超限",
+    "peak": "pass",
+    "flags": [],
+    "limit": "fail",
+    "ratio": "pass",
+    "labels": [
+      "数值超限"
+    ]
+  },
+  {
+    "id": "DEMO-06",
+    "sample": "演示样品6·离子比异常",
+    "peak": "pass",
+    "flags": [],
+    "limit": "pass",
+    "ratio": "fail",
+    "labels": [
+      "离子比不满足"
+    ]
+  },
+  {
+    "id": "DEMO-07",
+    "sample": "演示样品7·多项异常",
+    "peak": "fail",
+    "flags": [
+      "tailing"
+    ],
+    "limit": "fail",
+    "ratio": "fail",
+    "labels": [
+      "拖尾",
+      "数值超限",
+      "离子比不满足"
+    ]
+  },
+  {
+    "id": "DEMO-08",
+    "sample": "演示样品8·缺少曲线",
+    "peak": "unknown",
+    "flags": [],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "部分检查数据不足"
+    ]
+  },
+  {
+    "id": "DEMO-09",
+    "sample": "演示样品9·缺少限量",
+    "peak": "pass",
+    "flags": [],
+    "limit": "unknown",
+    "ratio": "pass",
+    "labels": [
+      "部分检查数据不足"
+    ]
+  },
+  {
+    "id": "DEMO-10",
+    "sample": "演示样品10·缺少参考比",
+    "peak": "pass",
+    "flags": [],
+    "limit": "pass",
+    "ratio": "unknown",
+    "labels": [
+      "部分检查数据不足"
+    ]
+  },
+  {
+    "id": "DEMO-11",
+    "sample": "演示样品11·低于定量限",
+    "peak": "pass",
+    "flags": [],
+    "limit": "unknown",
+    "ratio": "pass",
+    "labels": [
+      "部分检查数据不足"
+    ]
+  },
+  {
+    "id": "DEMO-12",
+    "sample": "演示样品12·疑似饱和",
+    "peak": "fail",
+    "flags": [
+      "saturation"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "疑似饱和"
+    ]
+  },
+  {
+    "id": "DEMO-13",
+    "sample": "演示样品13·采样不足",
+    "peak": "unknown",
+    "flags": [
+      "insufficient"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "信号／采样不足",
+      "部分检查数据不足"
+    ]
+  },
+  {
+    "id": "DEMO-14",
+    "sample": "演示样品14·离子比不适用",
+    "peak": "pass",
+    "flags": [],
+    "limit": "pass",
+    "ratio": "na",
+    "labels": []
+  },
+  {
+    "id": "DEMO-15",
+    "sample": "演示样品15·积分边界截断",
+    "peak": "warn",
+    "flags": [
+      "truncated"
+    ],
+    "limit": "pass",
+    "ratio": "pass",
+    "labels": [
+      "峰边界截断"
+    ]
+  }
+]

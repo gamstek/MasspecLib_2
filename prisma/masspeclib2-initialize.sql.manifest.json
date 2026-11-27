@@ -1,0 +1,8 @@
+{
+  "product": "MasspecLib2",
+  "schemaVersion": 4,
+  "generatedAt": "2026-10-16T03:16:54.756Z",
+  "sha256": "fe89dd7a26366d7c6690d94c0371ea9d80d3803b527f519fc22bab76d451ff2d",
+  "schemaHash": "56323b4004e3a6f3ff0dc942f354da55640a7975bd6ce577209d1d9952079851",
+  "content": "空的新库结构与产品版本元数据；不含正式化合物数据"
+}

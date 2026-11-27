@@ -1,0 +1,199 @@
+{
+  "11": {
+    "url": "https://zenodo.org/records/10951913/files/MSMS-Neg-Respect.msp?download=1",
+    "format": "msp",
+    "filename": "MSMS-Neg-Respect.msp"
+  },
+  "12": {
+    "url": "https://zenodo.org/api/records/10951913/files/BioMSMS-Neg-PlaSMA.msp/content",
+    "format": "msp",
+    "filename": "BioMSMS-Neg-PlaSMA.msp",
+    "checksum": "md5:57f758f2608beaa7ad8bca6b654a6b15",
+    "size": 1277522
+  },
+  "15": {
+    "url": "https://zenodo.org/api/records/10951913/files/MSMS-Neg-Vaniya-Fiehn_Natural_Products_Library_20200109.msp/content",
+    "format": "msp",
+    "filename": "MSMS-Neg-Vaniya-Fiehn_Natural_Products_Library_20200109.msp"
+  },
+  "16": {
+    "url": "https://library.gnps2.org/api/libraries/BERKELEY-LAB/mgf",
+    "format": "mgf"
+  },
+  "23": {
+    "url": "https://www.recetox.muni.cz/media/3353199/recetox_exposome_gc-ei-ms_20201028.msp",
+    "format": "msp"
+  },
+  "24": {
+    "url": "https://www.recetox.muni.cz/media/3338142/rcx_gc-orbitrap_metabolites_20210817.msp",
+    "format": "msp"
+  },
+  "25": {
+    "url": "https://www.recetox.muni.cz/media/3337715/recetox_gc-orbitrap-labelled_20210818.msp",
+    "format": "msp"
+  },
+  "26": {
+    "url": "https://zenodo.org/api/records/6325572/files/RECETOX_Exposome_pesticides_HR-%5BESI-%5D-MS_20220323.msp/content",
+    "format": "msp",
+    "filename": "RECETOX_Exposome_pesticides_HR-[ESI-]-MS_20220323.msp",
+    "checksum": "md5:c5039636879f4b5863bb4005dbe9a803",
+    "size": 65573
+  },
+  "27": {
+    "url": "https://zenodo.org/api/records/6325572/files/RECETOX_Exposome_pharmaceuticals_HR-%5BESI-%5D-MS_20220323.msp/content",
+    "format": "msp",
+    "filename": "RECETOX_Exposome_pharmaceuticals_HR-[ESI-]-MS_20220323.msp",
+    "checksum": "md5:59376ca592ca4971df5ae192c5fed64d",
+    "size": 197106
+  },
+  "31": {
+    "url": "https://zenodo.org/api/records/10951913/files/MSMS-Neg-PFAS_20200806.msp/content",
+    "format": "msp",
+    "filename": "MSMS-Neg-PFAS_20200806.msp"
+  },
+  "42": {
+    "url": "https://zenodo.org/records/10951913/files/MSMS-Pos-FiehnHILIC.msp?download=1",
+    "format": "msp",
+    "filename": "MSMS-Pos-FiehnHILIC.msp",
+    "checksum": "md5:977b9fb32b5284e8bbe2e0f053d21a31",
+    "size": 1299210
+  },
+  "43": {
+    "url": "https://zenodo.org/records/10951913/files/MSMS-Pos-Pathogen_Box_20200109.msp?download=1",
+    "format": "msp",
+    "filename": "MSMS-Pos-Pathogen_Box_20200109.msp",
+    "checksum": "md5:d98cdc4db0b8d926c78a644b1172f7d0",
+    "size": 190891
+  },
+  "45": {
+    "url": "https://zenodo.org/records/10951913/files/KI-GIAR_zic-HILIC_Pos_v0.90.msp?download=1",
+    "format": "msp",
+    "filename": "KI-GIAR_zic-HILIC_Pos_v0.90.msp",
+    "checksum": "md5:c9c391a0e658f3f72d7823ebe7350944",
+    "size": 2131540
+  },
+  "46": {
+    "url": "https://zenodo.org/records/10951913/files/GCMS%20DB_FiehnBinbase-FiehnRI-VS2.msp?download=1",
+    "format": "msp",
+    "filename": "GCMS DB_FiehnBinbase-FiehnRI-VS2.msp",
+    "checksum": "md5:ee64d6fc935cb06c9a239b86790beaee",
+    "size": 1758726
+  },
+  "47": {
+    "url": "https://zenodo.org/api/records/10951913/files/GCMS%20DB_MassBank-Restek-RIKEN-VS2.msp/content",
+    "format": "msp",
+    "filename": "GCMS DB_MassBank-Restek-RIKEN-VS2.msp",
+    "checksum": "md5:b65795eb28361e58e9b4e7a9b68de697",
+    "size": 325488
+  },
+  "48": {
+    "url": "https://zenodo.org/records/10951913/files/GCMS%20DB_MassBank-Restek-Kazusa-VS2.msp?download=1",
+    "format": "msp",
+    "filename": "GCMS DB_MassBank-Restek-Kazusa-VS2.msp",
+    "checksum": "md5:63672fac08c38e73b0691e677e24716f",
+    "size": 415599
+  },
+  "49": {
+    "url": "https://zenodo.org/records/10951913/files/GCMS%20DB_InertCap%205MS_GLscience-VS2.msp?download=1",
+    "format": "msp",
+    "filename": "GCMS DB_InertCap 5MS_GLscience-VS2.msp",
+    "checksum": "md5:aac7603735206e5a636ff467058a72af",
+    "size": 329966
+  },
+  "50": {
+    "url": "https://zenodo.org/records/11649994/files/FukusakiLab_GCMSLibraryHe20240606.msp?download=1",
+    "format": "msp",
+    "filename": "FukusakiLab_GCMSLibraryHe20240606.msp",
+    "checksum": "md5:353c2049617157fb48126f0e9ca413a0",
+    "size": 595899
+  },
+  "51": {
+    "url": "https://zenodo.org/records/11649994/files/GCMS_H2_Library.msp?download=1",
+    "format": "msp",
+    "filename": "GCMS_H2_Library.msp",
+    "checksum": "md5:9dc0cf174c1974d0dbddca3204ed8fbf",
+    "size": 613240
+  },
+  "52": {
+    "url": "https://zenodo.org/api/records/10951913/files/GCMS%20DB_MassBank-CPSil8-OsakaUniv-VS2-replacedByFiehnRI.msp/content",
+    "format": "msp",
+    "filename": "GCMS DB_MassBank-CPSil8-OsakaUniv-VS2-replacedByFiehnRI.msp",
+    "checksum": "md5:1b8c276990125ceafc9bf1e979ba6ca8",
+    "size": 678451
+  },
+  "53": {
+    "url": "https://zenodo.org/api/records/10951913/files/GCMS%20DB_MoNA-Volatile-KovatsRI.msp/content",
+    "format": "msp",
+    "filename": "GCMS DB_MoNA-Volatile-KovatsRI.msp",
+    "checksum": "md5:2e65c1b93be977e4c3a05ed6e778e2c1",
+    "size": 472621
+  },
+  "54": {
+    "url": "https://zenodo.org/records/10951913/files/MSMS-Neg-CASMI2016.msp?download=1",
+    "format": "msp",
+    "filename": "MSMS-Neg-CASMI2016.msp",
+    "checksum": "md5:2e016925b8418447cf8d642986105ced",
+    "size": 97265
+  },
+  "55": {
+    "url": "https://library.gnps2.org/api/libraries/MIADB/mgf",
+    "format": "mgf"
+  },
+  "56": {
+    "url": "https://library.gnps2.org/api/libraries/IQAMDB/mgf",
+    "format": "mgf"
+  },
+  "57": {
+    "url": "https://library.gnps2.org/api/libraries/LDB_POSITIVE/mgf",
+    "format": "mgf"
+  },
+  "58": {
+    "url": "https://library.gnps2.org/api/libraries/SUMNER/mgf",
+    "format": "mgf"
+  },
+  "59": {
+    "url": "https://library.gnps2.org/api/libraries/LEAFBOT/mgf",
+    "format": "mgf"
+  },
+  "60": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-SAM-SIK-KANG-LEGACY-LIBRARY/mgf",
+    "format": "mgf"
+  },
+  "61": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-NIH-NATURALPRODUCTSLIBRARY/mgf",
+    "format": "mgf"
+  },
+  "62": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-NIH-NATURALPRODUCTSLIBRARY_ROUND2_NEGATIVE/mgf",
+    "format": "mgf"
+  },
+  "63": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-SELLECKCHEM-FDA-PART2/mgf",
+    "format": "mgf"
+  },
+  "64": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-NIH-CLINICALCOLLECTION2/mgf",
+    "format": "mgf"
+  },
+  "65": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-NIH-SMALLMOLECULEPHARMACOLOGICALLYACTIVE/mgf",
+    "format": "mgf"
+  },
+  "66": {
+    "url": "https://library.gnps2.org/api/libraries/GNPS-NUTRI-METAB-FEM-NEG/mgf",
+    "format": "mgf"
+  },
+  "67": {
+    "url": "https://library.gnps2.org/api/libraries/WINE-DB-ORBITRAP/mgf",
+    "format": "mgf"
+  },
+  "68": {
+    "url": "https://library.gnps2.org/api/libraries/PSU-MSMLS/mgf",
+    "format": "mgf"
+  },
+  "69": {
+    "url": "https://codeload.github.com/zamboni-lab/MultiMS2/zip/refs/heads/main",
+    "format": "mgf",
+    "member": "MultiMS2-main/data/multims2_spectra.mgf"
+  }
+}

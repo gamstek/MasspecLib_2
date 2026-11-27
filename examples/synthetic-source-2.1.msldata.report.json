@@ -1,0 +1,8 @@
+{
+  "input": "examples/synthetic-source-2.1.json",
+  "output": "examples/synthetic-source-2.1.msldata",
+  "groups": 1,
+  "bytes": 1282,
+  "sha256": "cc8ad19f2d24cedb7e8b4fb7752df633e55b5880930d13f509afe0c102e82ef2",
+  "mappingVersion": "synthetic-demo-2.1"
+}

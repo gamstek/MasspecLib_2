@@ -1,0 +1,6 @@
+name: masspeclib2
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - nodejs=22

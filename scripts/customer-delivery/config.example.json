@@ -1,0 +1,20 @@
+{
+  "project": "/srv/ptk-master2",
+  "directory": "/srv/ptk-master2/.server/test1/state",
+  "fileLibraryRoot": "/srv/ptk-master2/.server/test1/state/source-libraries",
+  "databaseUploadRoot": "/srv/masspeclib-data/服务器文件库",
+  "socketPath": "/run/mysqld/mysqld.sock",
+  "databaseCredentials": "/srv/ptk-master2/.server/test1/secrets/database-credentials.json",
+  "maintenanceCredentials": "/srv/ptk-master2/.server/test1/secrets/maintenance-credentials.json",
+  "privateKey": "/srv/ptk-master2/.server/test1/secrets/signing-private.pem",
+  "publicKey": "/srv/ptk-master2/.server/test1/secrets/signing-public.pem",
+  "tlsKey": "/srv/ptk-master2/.server/test1/secrets/tls-key.pem",
+  "tlsCert": "/srv/ptk-master2/.server/test1/secrets/tls-cert.pem",
+  "credentialKeyFile": "/srv/ptk-master2/.server/test1/state/private-keys/credential-vault.key",
+  "host": "127.0.0.1",
+  "port": 8445,
+  "publicUrl": "https://delivery.example.org:8445",
+  "certificateFingerprint": "<SHA-256 of the TLS certificate>",
+  "templateFile": "/srv/ptk-master2/.server/test1/state/client-template.zip",
+  "requirePublication": true
+}

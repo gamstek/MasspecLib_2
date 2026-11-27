@@ -1,0 +1,86 @@
+{
+  "formatVersion": 2,
+  "schemaVersion": 2,
+  "packageId": "masspeclib2-synthetic-demo-v1",
+  "mappingVersion": "synthetic-v1",
+  "groups": [
+    {
+      "source": {
+        "namespace": "synthetic-demo",
+        "key": "case-1",
+        "name": "测试造数，禁止用作真实谱库"
+      },
+      "compound": {
+        "main_name": "测试化合物，不代表真实物质",
+        "name": [
+          {
+            "area": "中国",
+            "name": "测试化合物"
+          }
+        ],
+        "cas": null,
+        "formula": null
+      },
+      "methods": [
+        {
+          "localId": "method-1",
+          "ms_mode": null,
+          "q1": null,
+          "q3": null,
+          "ce": -15,
+          "dp": 0,
+          "polarity": null,
+          "ce_unit": null,
+          "energy_type": null
+        }
+      ],
+      "spectra": [
+        {
+          "kind": "numeric",
+          "peaks": [
+            {
+              "mz": "100.0000000001",
+              "intensity": "100000"
+            },
+            {
+              "mz": "100.0000000001",
+              "intensity": "5000"
+            }
+          ],
+          "adduct": null,
+          "polarity": null,
+          "methodLocalIds": [
+            "method-1"
+          ],
+          "nature": "synthetic-test"
+        }
+      ],
+      "lcMethods": [
+        {
+          "lc_mode": null,
+          "retention_time": 1.5,
+          "retention_time_unit": null,
+          "items": [
+            {
+              "time": 0,
+              "flow_rate": 0,
+              "percentage_A": "0",
+              "percentage_B": "100",
+              "time_unit": null
+            }
+          ]
+        }
+      ],
+      "profiles": [
+        {
+          "title": "测试档案",
+          "matrix": null,
+          "verification_status": "未验证，测试造数",
+          "data": {
+            "purpose": "软件测试"
+          }
+        }
+      ]
+    }
+  ]
+}
