@@ -11,6 +11,9 @@ function supportedNode(version) {
   return major === 24 || (major === 22 && minor >= 13)
 }
 function fingerprint(value) { return typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value.replaceAll(':', '')) }
+function sharedSshFingerprint(value) {
+  return fingerprint(value) || (typeof value === 'string' && /^SHA256:[A-Za-z0-9+/]{42}[AEIMQUYcgkosw048]$/.test(value))
+}
 function validateDelivery(p) {
   if (!p || p.enabled !== true || p.edition !== 'admin') fail('管理员配置必须启用，且 edition 必须是 admin。请勿使用客户端配置。')
   let url; try { url = new URL(p.endpoint) } catch { fail('管理员配置缺少有效的 HTTPS 服务地址。') }
@@ -28,7 +31,7 @@ function validateShared(p) {
   if (!Number.isInteger(p.port) || p.port < 1 || p.port > 65535 || !['ssh', 'direct', undefined].includes(p.mode)) fail('共享连接配置中的模式或端口不正确。')
   if (p.mode === 'ssh') {
     const s = p.sshDefaults
-    if (!s || !s.host || !s.username || !Number.isInteger(s.port) || s.port < 1 || s.port > 65535 || !fingerprint(s.hostFingerprint)) fail('共享连接配置缺少 SSH 地址、账号、端口或服务器指纹。')
+    if (!s || !s.host || !s.username || !Number.isInteger(s.port) || s.port < 1 || s.port > 65535 || !sharedSshFingerprint(s.hostFingerprint)) fail('共享连接配置缺少 SSH 地址、账号、端口或服务器指纹。')
   } else if (!p.host) fail('直连模式缺少数据库服务器地址。')
 }
 function profiles(directory = root) {

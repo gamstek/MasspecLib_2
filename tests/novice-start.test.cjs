@@ -17,6 +17,12 @@ test('missing private configuration fails before any installer or build can run'
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'novice-profile-'))
  try{fs.mkdirSync(path.join(dir,'resources'));fs.writeFileSync(path.join(dir,'resources/shared-server.example.json'),'{"enabled":false}');assert.throws(()=>profiles(dir),/缺少公司连接配置/);assert(!fs.existsSync(path.join(dir,'node_modules')))}finally{fs.rmSync(dir,{recursive:true})}
 })
+test('shared SSH profiles accept the OpenSSH fingerprint emitted by the application', () => {
+  const profile = shared()
+  profile.sshDefaults.hostFingerprint = 'SHA256:' + crypto.createHash('sha256').update('test host key').digest('base64').replace(/=+$/, '')
+  assert.doesNotThrow(() => validateShared(profile))
+  assert.throws(() => validateShared({ ...profile, sshDefaults: { ...profile.sshDefaults, hostFingerprint: 'SHA256:invalid' } }))
+})
 test('selected private configuration is used without copying or changing credential files',()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'novice-profile-'))
  try{
